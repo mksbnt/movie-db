@@ -10,7 +10,7 @@ const movie = {
 
 function Image(props) {
   return (
-    <img src={props.src} alt={props.alt}/>
+    <img width="100%" src={props.src} alt={props.alt}/>
   )
 }
 
@@ -19,23 +19,39 @@ class MovieItem extends React.Component {
     super();
 
     this.state = {
-      show: false
+      show: false,
+      like: false,
     };
+  }
+
+  toggleOverview = () => {
+    this.setState({
+      show: !this.state.show
+    })
+  }
+
+  handleLike = () => {
+    this.setState({
+      like: !this.state.like
+    })
   }
 
   render() {
     const {data: {title, rate, image, overview}} = this.props;
     console.log('state ', this.state)
     return (
-      <div>
+      <div style={{maxWidth: "300px"}}>
         <Image src={image} alt={title}/>
         <p>{title}</p>
         <p>{rate}</p>
-        <button type="button" onClick={() => {
-          this.setState({
-            show: true
-          })
-        }}>Show</button>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
+          <button type="button" onClick={this.toggleOverview}>
+            {this.state.show ? "Hide" : "Show"}
+          </button>
+          <button type="button" onClick={this.handleLike}
+                  className={this.state.like ? "btn--like" : null}>Like
+          </button>
+        </div>
         {this.state.show ? <p>{overview}</p> : null}
       </div>
     )
