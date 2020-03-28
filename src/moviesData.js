@@ -1,0 +1,47 @@
+export const moviesData = [
+  {
+    vote_count: 1,
+    id: 1,
+    video: false,
+    vote_average: 8.5,
+    title: "Avengers: Infinity War",
+    popularity: 160.3242,
+    poster_path: "/test",
+    original_language: "en",
+    original_title: "Avengers: Infinity War",
+    backdrop_path: "/test",
+    adult: false,
+    overview: "overview",
+    release_date: "2018-04-25"
+  },
+  {
+    vote_count: 1,
+    id: 2,
+    video: false,
+    vote_average: 8.5,
+    title: "Avengers: Infinity War 2",
+    popularity: 160.3242,
+    poster_path: "/test",
+    original_language: "en",
+    original_title: "Avengers: Infinity War 2",
+    backdrop_path: "/test",
+    adult: false,
+    overview: "overview",
+    release_date: "2019-04-25"
+  },
+  {
+    vote_count: 1,
+    id: 3,
+    video: false,
+    vote_average: 8.5,
+    title: "Avengers: Infinity War 3",
+    popularity: 160.3242,
+    poster_path: "/test",
+    original_language: "en",
+    original_title: "Avengers: Infinity War 3",
+    backdrop_path: "/test",
+    adult: false,
+    overview: "overview",
+    release_date: "2020-04-25"
+  },
+];
