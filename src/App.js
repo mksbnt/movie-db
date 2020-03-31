@@ -1,8 +1,9 @@
-import React from 'react';
-import './App.css';
-import {moviesData} from './moviesData'
+import React from "react";
+import "./App.css";
+import { moviesData } from "./moviesData";
+import MovieItem from "./components/MovieItem";
 
-class MovieItem extends React.Component {
+class App extends React.Component {
   constructor() {
     super();
 
@@ -11,21 +12,30 @@ class MovieItem extends React.Component {
     };
   }
 
+  removeMovie = movie => {
+    const updateMovies = this.state.movies.filter(function(item) {
+      return item.id !== movie.id;
+    });
+    this.setState({
+      movies: updateMovies
+    });
+  };
+
   render() {
     return (
       <div>
-        {this.state.movies.map((movie) => <p>{movie.title}</p>)}
+        {this.state.movies.map(movie => {
+          return (
+            <MovieItem
+              key={movie.id}
+              movie={movie}
+              removeMovie={this.removeMovie}
+            />
+          );
+        })}
       </div>
-    )
+    );
   }
-}
-
-function App() {
-  return (
-    <div>
-      <MovieItem/>
-    </div>
-  );
 }
 
 export default App;
